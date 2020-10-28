@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="userDao" class="com.ghh.dao.impl.UserDaoImpl" scope="singleton" init-method="init"
+            destroy-method="release"></bean>-->
+    <!--<bean id="userDao" class="com.ghh.factory.StaticFactory" factory-method="getUserDao"></bean>-->
+    <!--<bean id="factory" class="com.ghh.factory.DynamicFactory"></bean>
+    <bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>-->
+
+    <bean id="userDao" class="com.ghh.dao.impl.UserDaoImpl"></bean>
+    <bean id="userService" class="com.ghh.service.impl.UserServiceImpl"></bean>
+</beans>
