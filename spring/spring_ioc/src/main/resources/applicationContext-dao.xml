@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="userDao" class="com.ghh.dao.impl.UserDaoImpl" scope="singleton" init-method="init"
+            destroy-method="release"></bean>-->
+    <!--<bean id="userDao" class="com.ghh.factory.StaticFactory" factory-method="getUserDao"></bean>-->
+    <!--<bean id="factory" class="com.ghh.factory.DynamicFactory"></bean>
+    <bean id="userDao" factory-bean="factory" factory-method="getUserDao"></bean>-->
+
+    <!--<bean id="userDao" class="com.ghh.dao.impl.UserDaoImpl">
+        <property name="age" value="10"/>
+        <property name="userName" value="hahaha"/>
+    </bean>-->
+    <bean id="userDao" class="com.ghh.dao.impl.UserDaoImpl">
+        <property name="strList">
+            <list>
+                <value>aaa</value>
+                <value>bbb</value>
+                <value>ccc</value>
+            </list>
+        </property>
+        <property name="userMap">
+            <map>
+                <entry key="user1" value-ref="user1"></entry>
+                <entry key="user2" value-ref="user2"></entry>
+                <entry key="user3" value-ref="user3"></entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="provide">aaaa</prop>
+                <prop key="url">bbbb</prop>
+                <prop key="userName">cccc</prop>
+                <prop key="password">dddd</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="user1" class="com.ghh.domain.User">
+        <property name="userName" value="user1"/>
+        <property name="age" value="19"/>
+    </bean>
+    <bean id="user2" class="com.ghh.domain.User">
+        <property name="userName" value="user2"/>
+        <property name="age" value="29"/>
+    </bean>
+    <bean id="user3" class="com.ghh.domain.User">
+        <property name="userName" value="user3"/>
+        <property name="age" value="39"/>
+    </bean>
+</beans>
