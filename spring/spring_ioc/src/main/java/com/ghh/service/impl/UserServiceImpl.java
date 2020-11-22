@@ -2,7 +2,6 @@ package com.ghh.service.impl;
 
 import com.ghh.dao.IUserDao;
 import com.ghh.service.IUserService;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class UserServiceImpl implements IUserService {
     private IUserDao userDao;
