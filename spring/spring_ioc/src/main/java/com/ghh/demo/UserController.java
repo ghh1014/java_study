@@ -1,11 +1,8 @@
 package com.ghh.demo;
 
-import com.ghh.dao.IUserDao;
 import com.ghh.service.IUserService;
-import com.ghh.service.impl.UserServiceImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class UserController {
     public static void main(String[] args) {
