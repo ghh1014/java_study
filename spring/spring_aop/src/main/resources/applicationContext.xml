@@ -14,9 +14,17 @@
     <aop:config>
         <!--声明切面-->
         <aop:aspect ref="myAspect">
+            <!--抽取切点表达式-->
+            <aop:pointcut id="myPointcut" expression="execution(* com.ghh.aop.*.*(..))"/>
             <!--切面：切点+通知-->
-            <aop:before method="before" pointcut="execution(public void com.ghh.aop.TargetImpl.save())"/>
-
+            <!--<aop:before method="before" pointcut="execution(public void com.ghh.aop.TargetImpl.save())"/>-->
+            <!--<aop:before method="before" pointcut="execution(* com.ghh.aop.*.*(..))"/>
+            <aop:after-returning method="afterReturning" pointcut="execution(* com.ghh.aop.*.*(..))"/>-->
+            <!--<aop:around method="around" pointcut="execution(* com.ghh.aop.*.*(..))"/>
+            <aop:after-throwing method="afterThrowing" pointcut="execution(* com.ghh.aop.*.*(..))"/>
+            <aop:after method="after" pointcut="execution(* com.ghh.aop.*.*(..))"/>-->
+            <aop:around method="around" pointcut-ref="myPointcut"/>
+            <aop:after method="after" pointcut-ref="myPointcut"/>
         </aop:aspect>
     </aop:config>
 </beans>
