@@ -26,6 +26,10 @@ public class Account {
         this.money = money;
     }
 
+
+    public Account() {
+    }
+
     @Override
     public String toString() {
         return "Account{" +
