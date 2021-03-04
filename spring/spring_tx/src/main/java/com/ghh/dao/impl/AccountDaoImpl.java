@@ -1,16 +1,13 @@
 package com.ghh.dao.impl;
 
 import com.ghh.dao.IAccountDao;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-
-import javax.annotation.Resource;
 
 @Repository("accountDao")
 public class AccountDaoImpl implements IAccountDao {
-    @Resource(name = "jdbcTemplate")
+    @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
