@@ -6,20 +6,42 @@ import com.ghh.domain.User;
 import com.ghh.domain.VO;
 import javafx.geometry.Pos;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    @RequestMapping("/quick14")
+    @ResponseBody
+    public void save14(@CookieValue("JSESSIONID")String jsessionId){
+        System.out.println(jsessionId);
+    }
+
+    @RequestMapping("/quick13")
+    @ResponseBody
+    public void save13(@RequestHeader(value = "User-Agent",required = false)String user_agent){
+        System.out.println(user_agent);
+    }
+
+    @RequestMapping("/quick12")
+    @ResponseBody
+    public void save12(Date date){
+        System.out.println(date);
+    }
+
+    @RequestMapping("/quick11/{username}")
+    @ResponseBody
+    public void save11(@PathVariable("username")String username){
+        System.out.println(username);
+    }
 
     @RequestMapping(value = "/quick10")
     @ResponseBody

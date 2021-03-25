@@ -25,8 +25,17 @@
     </bean>-->
 
     <!--mvc的注解驱动-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionService"/>
 
     <!--开放资源的访问-->
     <!--<mvc:default-servlet-handler/>-->
+
+    <!--声明转换器-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.ghh.converter.DateConverter"></bean>
+            </list>
+        </property>
+    </bean>
 </beans>
