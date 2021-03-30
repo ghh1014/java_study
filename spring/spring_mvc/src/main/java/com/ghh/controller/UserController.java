@@ -7,9 +7,11 @@ import com.ghh.domain.VO;
 import javafx.geometry.Pos;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
@@ -18,6 +20,23 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    @RequestMapping(value = "/quick16",method = RequestMethod.POST)
+    @ResponseBody
+    public void save16(String name, MultipartFile[] uploadFiles) throws IOException {
+        System.out.println(name);
+        for (MultipartFile uploadFile : uploadFiles) {
+            String originalFilename = uploadFile.getOriginalFilename();
+            uploadFile.transferTo(new File("e:\\uplaod\\"+originalFilename));
+        }
+    }
+
+    @RequestMapping(value = "/quick15",method = RequestMethod.POST)
+    @ResponseBody
+    public void save15(String name, MultipartFile uploadFile) throws IOException {
+        String originalFilename = uploadFile.getOriginalFilename();
+        uploadFile.transferTo(new File("e:\\uplaod\\"+originalFilename));
+    }
 
     @RequestMapping("/quick14")
     @ResponseBody
